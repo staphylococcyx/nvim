@@ -19,9 +19,13 @@ end
 install.prefer_git = vim.fn.has 'win32' == 1
 
 local ensure_installed = {
+	'css',
 	'editorconfig',
 	'gitignore',
+	'html',
 	'ini',
+	'javascript',
+	'jsdoc',
 	'json',
 	'jsonc',
 	'lua',
