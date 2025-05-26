@@ -6,10 +6,10 @@ end
 telescope.setup {
 	extensions = {
 		fzf = {
-			fuzzy = true,                    -- false will only do exact matching
-			override_generic_sorter = true,  -- override the generic sorter
-			override_file_sorter = true,     -- override the file sorter
-			case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+			fuzzy = true, -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
 		},
 	},
 }
@@ -18,7 +18,11 @@ telescope.load_extension 'fzf'
 
 local ok_builtin, builtin = pcall(require, 'telescope.builtin')
 if not ok_builtin then
-	return vim.notify('COULD NOT LOAD TELESCOPE.BUILTIN', vim.log.levels.ERROR, { title = 'TELESCOPE.BUILTIN' })
+	return vim.notify(
+		'COULD NOT LOAD TELESCOPE.BUILTIN',
+		vim.log.levels.ERROR,
+		{ title = 'TELESCOPE.BUILTIN' }
+	)
 end
 
 local keymap = vim.keymap
