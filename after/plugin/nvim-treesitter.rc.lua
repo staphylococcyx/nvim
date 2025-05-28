@@ -24,6 +24,8 @@ local ensure_installed = {
 	'gitignore',
 	'html',
 	'ini',
+	'java',
+	'javadoc',
 	'javascript',
 	'jsdoc',
 	'json',
@@ -33,9 +35,12 @@ local ensure_installed = {
 	'luap',
 	'php',
 	'phpdoc',
+	'properties',
 	'toml',
 	'twig',
 	'vimdoc',
+	'xml',
+	'yaml',
 }
 
 configs.setup {
