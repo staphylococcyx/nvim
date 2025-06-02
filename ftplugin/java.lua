@@ -5,6 +5,7 @@ end
 
 local jdtls_path = vim.fn.stdpath 'data' .. '/mason/packages/jdtls'
 local launcher_jar = vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar')
+local lombok_jar = jdtls_path .. '/lombok.jar'
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
 local function get_config_dir()
@@ -33,6 +34,7 @@ local config = {
 		'-Dlog.protocol=true',
 		'-Dlog.level=ALL',
 		'-Xmx1G',
+		'-javaagent:' .. lombok_jar,
 		'--add-modules=ALL-SYSTEM',
 		'--add-opens',
 		'java.base/java.util=ALL-UNNAMED',
@@ -45,9 +47,9 @@ local config = {
 		'-data',
 		vim.fn.expand '~/.cache/jdtls-workspace/' .. workspace_dir,
 	},
-	settings = {
-		['java.format.settings.url'] = vim.fn.expand '~/formatter.xml',
-	},
+	-- settings = {
+	-- 	['java.format.settings.url'] = vim.fn.expand '~/formatter.xml',
+	-- },
 	root_dir = vim.fs.dirname(
 		vim.fs.find({ 'pom.xml', '.git', 'mvnw', 'gradlew' }, { upward = true })[1]
 	),
@@ -66,8 +68,9 @@ local config = {
 			{ desc = 'Organize imports', buffer = bufnr }
 		)
 		-- Should 'd' be reserved for debug?
-		keymap.set('n', '<leader>df', jdtls.test_class, opts)
-		keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
+		keymap.set('n', '<leader>tf', jdtls.test_class, opts)
+		keymap.set('n', '<leader>tn', jdtls.test_nearest_method, opts)
+		keymap.set('n', '<leader>d', function () vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, opts)
 		-- vim.keymap.set('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
 		-- vim.keymap.set('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
 		-- { desc = 'Extract method', buffer = bufnr })
