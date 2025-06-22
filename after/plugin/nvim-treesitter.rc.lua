@@ -42,6 +42,7 @@ local ensure_installed = {
 	'toml',
 	'twig',
 	'typescript',
+	'tsx',
 	'vimdoc',
 	'xml',
 	'yaml',
