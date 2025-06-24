@@ -19,6 +19,7 @@ end
 install.prefer_git = vim.fn.has 'win32' == 1
 
 local ensure_installed = {
+	'comment',
 	'css',
 	'dockerfile',
 	'editorconfig',
@@ -40,9 +41,9 @@ local ensure_installed = {
 	'properties',
 	'rust',
 	'toml',
+	'tsx',
 	'twig',
 	'typescript',
-	'tsx',
 	'vimdoc',
 	'xml',
 	'yaml',

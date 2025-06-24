@@ -70,7 +70,13 @@ local config = {
 		-- Should 'd' be reserved for debug?
 		keymap.set('n', '<leader>tf', jdtls.test_class, opts)
 		keymap.set('n', '<leader>tn', jdtls.test_nearest_method, opts)
-		keymap.set('n', '<leader>d', function () vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, opts)
+		keymap.set(
+			'n',
+			'<leader>d',
+			function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end,
+			opts
+		)
+		keymap.set('n', '<leader>f', vim.diagnostic.open_float, opts)
 		-- vim.keymap.set('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
 		-- vim.keymap.set('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
 		-- { desc = 'Extract method', buffer = bufnr })
