@@ -26,6 +26,7 @@ local ensure_installed = {
 	'gitattributes',
 	'gitignore',
 	'html',
+	'hyprlang',
 	'ini',
 	'java',
 	'javadoc',
